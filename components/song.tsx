@@ -7,16 +7,6 @@ export default function SongGenerator() {
   const [mood, setMood] = useState("");
   const [isLoading, setLoading] = useState(false);
 
-  const loadingbtn = async () => {
-    setLoading(true);
-    try {
-      // Your logic to fetch songs here
-      await loadingbtn(); // Example async function
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const generateSongs = async () => {
     setLoading(true);
     try {
@@ -55,6 +45,7 @@ export default function SongGenerator() {
         {songs.map((song, index) => (
           <li key={index} style={{ marginBottom: "1rem" }}>
             <strong>{song.title}</strong> - {song.artist} <br />
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <audio controls src={song.preview}></audio> <br />
             <Button color="primary" variant="shadow">
               <a href={song.link} target="_blank" rel="noopener noreferrer">
